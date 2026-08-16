@@ -8,10 +8,10 @@ export class ProfileService implements OnModuleInit {
   async onModuleInit() {
     const profile = await this.prisma.profile.findFirst();
     const data = {
-      name: 'MD ZAFOR IQBAL',
-      title: 'Software Engineer & Programming Instructor',
+      name: 'Humayra Arzooman',
+      title: 'UI/UX Designer & Product Designer',
       location: 'Dhaka, Bangladesh',
-      statement: '[Computer Science and Engineering graduate (CGPA 3.80/4.00) and M.Sc. candidate with professional software engineering experience, published research in Deep Learning & AI, and hands-on teaching experience in React.js and modern Web Development.]',
+      statement: '[A product-focused Designer & Founder from Bangladesh, building high-performance digital experiences where modern design meets scalable technology, cloud innovation, and intelligent solutions.]',
       availableForWork: true,
       resumeUrl: '/resume.pdf',
       avatarUrl: '/assets/adina.jpeg',

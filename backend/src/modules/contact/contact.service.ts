@@ -9,12 +9,12 @@ export class ContactService implements OnModuleInit {
     const contact = await this.prisma.contact.findFirst();
     const data = {
       location: 'DHAKA, BANGLADESH',
-      email: 'xoy4444@gmail.com',
-      linkedin: 'https://linkedin.com/in/zaforiqbalxoy',
-      github: 'https://github.com/zafor4',
-      figma: 'https://figma.com/@zaforiqbal',
-      twitter: 'https://twitter.com/@zaforiqbal',
-      githubUsername: 'zafor4',
+      email: 'adinahawaldar895@gmail.com',
+      linkedin: 'https://linkedin.com/in/adina-hawaldar-17az6',
+      github: 'https://github.com/adinahawaldar',
+      figma: 'https://figma.com/@adinahawaldar',
+      twitter: 'https://twitter.com/@adina_hawaldar',
+      githubUsername: 'adinahawaldar',
       officeImageUrl: '/assets/professional_office.png',
     };
 

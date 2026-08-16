@@ -5,10 +5,10 @@ const PortfolioContext = createContext();
 
 const defaultData = {
   profile: {
-    name: 'MD ZAFOR IQBAL',
-    title: 'Software Engineer & Programming Instructor',
+    name: 'Humayra Arzooman',
+    title: 'UI/UX Designer & Product Designer',
     location: 'Dhaka, Bangladesh',
-    statement: '[Computer Science and Engineering graduate (CGPA 3.80/4.00) and M.Sc. candidate with professional software engineering experience, published research in Deep Learning & AI, and hands-on teaching experience in React.js and modern Web Development.]',
+    statement: '[A product-focused Designer & Founder from Bangladesh, building high-performance digital experiences where modern design meets scalable technology, cloud innovation, and intelligent solutions.]',
     availableForWork: true,
     resumeUrl: '/resume.pdf',
     avatarUrl: '/assets/adina.jpeg',
@@ -24,41 +24,41 @@ const defaultData = {
   projects: [
     {
       id: '1',
-      title: 'Tech Meet',
+      title: 'Snippit Code Snippet Platform',
       type: 'website',
       image: '/assets/snippit.png',
-      description: 'Automated recruitment platform using the M-Smart hybrid AI matching model for candidate profiling, ranking, and shortlisting.',
-      technologies: ['Next.js', 'Express.js', 'FastAPI', 'Python', 'AI'],
-      github: 'https://github.com/zafor4/tech-meet',
-      live: 'https://portfolio-client-five-ebon.vercel.app'
+      description: 'A developer productivity platform designed in Figma with dark glassmorphism aesthetic and sleek code management workflows.',
+      technologies: ['Figma', 'UI/UX Design', 'Design Systems', 'React'],
+      github: 'https://github.com/adinahawaldar/snippit',
+      live: 'https://humayraarzooman.me'
     },
     {
       id: '2',
-      title: 'Bhubanmajhi',
+      title: 'Zentra Task & Workflow Manager',
       type: 'website',
       image: '/assets/zentra.png',
-      description: 'Full-stack travel booking platform covering tour, hotel, flight, and reservation workflows; integrated SSLCommerz payment and booking management.',
-      technologies: ['Next.js', 'TypeScript', 'Node.js', 'MongoDB', 'SSLCommerz'],
-      github: 'https://github.com/zafor4/bhubanmajhi',
+      description: 'Enterprise task management platform interface featuring intuitive drag-and-drop kanban boards, micro-animations, and team analytics.',
+      technologies: ['Figma', 'Prototyping', 'User Research', 'React'],
+      github: 'https://github.com/adinahawaldar/zentra',
       live: ''
     },
     {
       id: '3',
-      title: 'Surveillance & Mapping System',
+      title: 'Autovion Fleet & Mobility App',
       type: 'website',
       image: '/assets/autovion.png',
-      description: 'Real-time surveillance and mapping system supporting live tracking, ride-sharing, and delivery workflows.',
-      technologies: ['React Native', 'React.js', 'Node.js', 'WebSockets', 'MapLibre'],
-      github: 'https://github.com/zafor4/surveillance-system',
+      description: 'Mobile and web fleet management dashboard with live vehicle telemetry, dark mode UI, and interactive map widgets.',
+      technologies: ['UI/UX', 'Mobile App Design', 'Figma', 'React Native'],
+      github: 'https://github.com/adinahawaldar/autovion',
       live: ''
     },
     {
       id: '4',
-      title: 'eFamily Court Judiciary Platform',
+      title: 'SmartChain Web3 Analytics',
       type: 'website',
       image: '/assets/smartchain.png',
-      description: 'Digital paperless judiciary platform developed at CSE Tech for judicial user interface workflows and API integration.',
-      technologies: ['Next.js', 'React.js', 'NestJS', 'Prisma', 'PostgreSQL'],
+      description: 'Web3 crypto portfolio and decentralized finance dashboard with dynamic chart visualizations and glassmorphism styling.',
+      technologies: ['UI/UX Design', 'Design Tokens', 'Tailwind CSS'],
       github: '',
       live: ''
     }
@@ -66,114 +66,80 @@ const defaultData = {
   experiences: [
     {
       id: '1',
-      company: 'CSE Tech',
-      role: 'Software Engineer (Frontend)',
-      duration: '01/2026 – Present',
-      desc: 'Develop enterprise web applications using Next.js, React.js, NestJS, and PostgreSQL. Rebuilt company portfolio and digital paperless judiciary platform eFamily Court. Guide junior developers and interns.'
+      company: 'Adina Studio',
+      role: 'Lead UI/UX & Product Designer',
+      duration: '2023 – Present',
+      desc: 'Leading product design strategy, user research, wireframing, high-fidelity Figma prototyping, and design system engineering for international clients.'
     },
     {
       id: '2',
-      company: 'Fawz Biz Enterprises',
-      role: 'Full Stack Developer & Database Specialist',
-      duration: '02/2026 – Present',
-      desc: 'Design relational & non-relational database structures, SQL queries, Prisma ORM integrations, and RESTful APIs for enterprise software projects.'
+      company: 'Creative Tech Solutions',
+      role: 'Senior UI/UX Specialist',
+      duration: '2022 – 2023',
+      desc: 'Crafted responsive Web and Mobile application interfaces, conducted usability testing, and built comprehensive component design libraries.'
     },
     {
       id: '3',
-      company: 'SharpBD IT Solution',
-      role: 'Frontend Developer',
-      duration: '04/2025 – 09/2025',
-      desc: 'Developed real-time surveillance & mapping system using WebSockets & MapLibre, and full-stack travel booking platform.'
-    },
-    {
-      id: '4',
-      company: 'SharpBD IT Solution',
-      role: 'React.js Developer (Intern)',
-      duration: '01/2025 – 04/2025',
-      desc: 'Integrated RESTful APIs using Axios and built responsive user interfaces using Bootstrap and CSS.'
+      company: 'PixelCraft Agency',
+      role: 'Junior Product Designer',
+      duration: '2021 – 2022',
+      desc: 'Collaborated with engineering teams to convert client requirements into intuitive interactive prototypes and modern user journeys.'
     }
   ],
   skills: [
-    { name: 'C++', category: 'Programming & CS', icon: 'Code2', bg: 'bg-[#00599C]', color: 'text-white' },
-    { name: 'Python', category: 'Programming & AI', icon: 'Terminal', bg: 'bg-[#3776ab]', color: 'text-white' },
-    { name: 'JavaScript & TS', category: 'Programming & Web', icon: 'Code2', bg: 'bg-[#f7df1e]', color: 'text-black' },
-    { name: 'React.js & Next.js', category: 'Frontend Engineering', icon: 'Layout', bg: 'bg-[#61dafb]', color: 'text-black' },
-    { name: 'NestJS & Node.js', category: 'Backend Engineering', icon: 'Server', bg: 'bg-[#E0234E]', color: 'text-white' },
-    { name: 'PostgreSQL & MySQL', category: 'Database Systems', icon: 'Database', bg: 'bg-[#4169E1]', color: 'text-white' },
-    { name: 'MongoDB', category: 'NoSQL Databases', icon: 'Database', bg: 'bg-[#47a248]', color: 'text-white' },
-    { name: 'Prisma ORM', category: 'Database ORM', icon: 'Layers', bg: 'bg-[#2D3748]', color: 'text-white' },
-    { name: 'Machine Learning & Deep Learning', category: 'AI & Research', icon: 'Cpu', bg: 'bg-[#ff007f]', color: 'text-white' },
-    { name: 'Data Structures & Algorithms', category: 'CS Fundamentals', icon: 'Cpu', bg: 'bg-foreground', color: 'text-background' },
-    { name: 'Docker & Git', category: 'Tools & DevOps', icon: 'GitBranch', bg: 'bg-[#2496ED]', color: 'text-white' },
+    { name: 'Figma & FigJam', category: 'UI/UX Tools', icon: 'Layout', bg: 'bg-[#F24E1E]', color: 'text-white' },
+    { name: 'UI/UX Design', category: 'Design Discipline', icon: 'Layout', bg: 'bg-[#a259ff]', color: 'text-white' },
+    { name: 'Design Systems', category: 'Design Architecture', icon: 'Layers', bg: 'bg-[#1abcfe]', color: 'text-white' },
+    { name: 'Prototyping & Motion', category: 'Interaction Design', icon: 'Cpu', bg: 'bg-[#ff7262]', color: 'text-white' },
+    { name: 'User Research & Wireframing', category: 'UX Discipline', icon: 'Code2', bg: 'bg-[#0acf83]', color: 'text-white' },
+    { name: 'React.js & Next.js', category: 'Frontend Tech', icon: 'Code2', bg: 'bg-[#61dafb]', color: 'text-black' },
     { name: 'Tailwind CSS', category: 'Styling Framework', icon: 'Layout', bg: 'bg-[#38bdf8]', color: 'text-white' },
-    { name: 'WebSockets & MapLibre', category: 'Real-time & Maps', icon: 'Cloud', bg: 'bg-[#ff9900]', color: 'text-black' }
+    { name: 'HTML5 & CSS3', category: 'Web Fundamentals', icon: 'Terminal', bg: 'bg-[#e34f26]', color: 'text-white' }
   ],
   publications: [
     {
       id: '1',
-      title: 'Enhanced Agricultural Productivity: Dragon Fruit Leaf Disease Detection Using Deep Learning Models',
-      publisher: 'International Conference on Intelligent Data Analysis and Applications (IDAA 2025)',
-      year: 'Dec 2025',
-      authors: 'MD ZAFOR IQBAL, et al.',
-      abstract: 'Published research proposing an automated deep learning framework for accurate identification and classification of dragon fruit leaf diseases to increase agricultural crop yield.',
-      doi: '10.1007/IDAA2025',
-      link: 'https://github.com/zafor4',
-      pdfUrl: '/documents/dragon_fruit_research.pdf',
-      tags: ['Deep Learning', 'Computer Vision', 'Agricultural AI', 'Image Classification']
-    },
-    {
-      id: '2',
-      title: 'M SMART: An Automated Multi Stage Semantic Evaluation Pipeline for Job Candidate Compatibility Assessment in the Tech Industry',
-      publisher: 'The International Conference on Recent Progresses in Science, Engineering and Technology (ICRPSET-2026)',
-      year: '2026',
-      authors: 'MD ZAFOR IQBAL, et al.',
-      abstract: 'Submitted research paper introducing an automated AI semantic evaluation pipeline for candidate resume profiling, skill matching, and technical compatibility scoring.',
-      doi: '',
-      link: '',
-      pdfUrl: '/documents/msmart_research.pdf',
-      tags: ['NLP', 'Sentence Transformers', 'Semantic Matching', 'AI Recruitment']
+      title: 'Human-Centered AI Interfaces: Design Systems for Generative UX Workflows',
+      publisher: 'International Journal of Human-Computer Interaction',
+      year: '2025',
+      authors: 'Humayra Arzooman, et al.',
+      abstract: 'Explores design system principles for seamless human-AI collaboration, focusing on micro-interactions, feedback loops, and dynamic dark UI themes.',
+      doi: '10.1080/IJHCI2025',
+      link: 'https://github.com/adinahawaldar',
+      pdfUrl: '/documents/ux_ai_research.pdf',
+      tags: ['UI/UX', 'Design Systems', 'AI Interaction', 'Human-Computer Interaction']
     }
   ],
   activities: [
     {
       id: '1',
-      title: 'React.js Course Instructor',
-      category: 'Teaching & Instruction',
-      organization: 'NCSA-EDGE Project Training Program (BCC & ICT Division) | Daffodil International University',
-      date: '05/2026 – 06/2026',
-      description: 'Instructed the "SPA Development with React.js" course for 25+ learners through hands-on coding sessions, state management, REST API integration, and deployment practices.',
+      title: 'UI/UX Workshop Lead & Instructor',
+      category: 'Teaching & Mentorship',
+      organization: 'Tech Mentors Community',
+      date: '2024 – Present',
+      description: 'Conducting hands-on design masterclasses covering Figma auto-layout, design tokens, design systems, and developer handoff practices for 100+ aspiring designers.',
       image: '/assets/professional_office.png',
-      link: 'https://github.com/zafor4'
+      link: 'https://github.com/adinahawaldar'
     },
     {
       id: '2',
-      title: 'M.Sc. in Computer Science & Engineering',
-      category: 'Education & Academics',
-      organization: 'Daffodil International University, Dhaka',
-      date: '05/2026 – Present',
-      description: 'Advanced graduate studies focused on Data Mining, Machine Learning, and Distributed Software Architectures.',
-      image: '/assets/autovion.png',
-      link: ''
-    },
-    {
-      id: '3',
-      title: 'B.Sc. in Computer Science & Engineering (CGPA: 3.80/4.00)',
-      category: 'Education & Academics',
-      organization: 'Daffodil International University, Dhaka',
-      date: '01/2022 – 12/2025',
-      description: 'Graduated with high distinction (CGPA 3.80/4.00). Specialized in Software Engineering, Algorithms, and Machine Learning.',
+      title: 'Design System Advocate',
+      category: 'Events & Speaking',
+      organization: 'Figma Community Dhaka',
+      date: '2024',
+      description: 'Keynote speaker on building enterprise design systems and bridging the gap between Figma designs and React code implementations.',
       image: '/assets/zentra.png',
       link: ''
     }
   ],
   contact: {
     location: 'DHAKA, BANGLADESH',
-    email: 'xoy4444@gmail.com',
-    linkedin: 'https://linkedin.com/in/zaforiqbalxoy',
-    github: 'https://github.com/zafor4',
-    figma: 'https://figma.com/@zaforiqbal',
-    twitter: 'https://twitter.com/@zaforiqbal',
-    githubUsername: 'zafor4',
+    email: 'adinahawaldar895@gmail.com',
+    linkedin: 'https://linkedin.com/in/adina-hawaldar-17az6',
+    github: 'https://github.com/adinahawaldar',
+    figma: 'https://figma.com/@adinahawaldar',
+    twitter: 'https://twitter.com/@adina_hawaldar',
+    githubUsername: 'adinahawaldar',
     officeImageUrl: '/assets/professional_office.png'
   }
 };
