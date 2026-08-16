@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  postgres-neetu:
+    image: postgres:15-alpine
+    container_name: neetu-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-neetu_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-neetu123}
+      POSTGRES_DB: ${POSTGRES_DB:-neetu_db}
+    volumes:
+      - neetu_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-neetu_user} -d ${POSTGRES_DB:-neetu_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  minio-neetu:
+    image: minio/minio:latest
+    container_name: neetu-minio
+    restart: always
+    command: server /data --console-address ":9002"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin123}
+    volumes:
+      - neetu_minio_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend-neetu:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: neetu-backend
+    restart: always
+    environment:
+      DATABASE_URL: "postgresql://${POSTGRES_USER:-neetu_user}:${POSTGRES_PASSWORD:-neetu123}@postgres-neetu:5432/${POSTGRES_DB:-neetu_db}?schema=public"
+      JWT_SECRET: ${JWT_SECRET:-super-secret-jwt-key-neetu-2026}
+      PORT: 3001
+      MINIO_ENDPOINT: minio-neetu
+      MINIO_PORT: 9000
+      MINIO_USE_SSL: "false"
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin123}
+      MINIO_BUCKET: portfolio-assets
+    depends_on:
+      postgres-neetu:
+        condition: service_healthy
+      minio-neetu:
+        condition: service_healthy
+
+  frontend-neetu:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: neetu-frontend
+    restart: always
+    depends_on:
+      - backend-neetu
+
+volumes:
+  neetu_postgres_data:
+  neetu_minio_data:

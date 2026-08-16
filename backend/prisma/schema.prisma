@@ -1,0 +1,130 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String
+  role         String   @default("admin")
+  createdAt    DateTime @default(now())
+
+  @@map("users")
+}
+
+model Profile {
+  id               String   @id @default(uuid())
+  name             String   @default("MD ZAFOR IQBAL")
+  title            String   @default("Software Engineer & Programming Instructor")
+  location         String   @default("Dhaka, Bangladesh")
+  statement        String   @default("[Computer Science and Engineering graduate (CGPA 3.80/4.00) and M.Sc. candidate with professional software engineering experience, published research in Deep Learning & AI, and hands-on teaching experience in React.js and modern Web Development.]")
+  availableForWork Boolean  @default(true)
+  resumeUrl        String   @default("/resume.pdf")
+  avatarUrl        String   @default("/assets/adina.jpeg")
+  showHero         Boolean  @default(true)
+  showProjects     Boolean  @default(true)
+  showExperience   Boolean  @default(true)
+  showSkills       Boolean  @default(true)
+  showGithub       Boolean  @default(true)
+  showPublications Boolean  @default(true)
+  showActivities   Boolean  @default(true)
+  showContact      Boolean  @default(true)
+  updatedAt        DateTime @updatedAt
+
+  @@map("profile")
+}
+
+model Project {
+  id           String   @id @default(uuid())
+  title        String
+  type         String   @default("website")
+  image        String
+  description  String
+  technologies String[]
+  github       String?
+  live         String?
+  figma        String?
+  sortOrder    Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("projects")
+}
+
+model Experience {
+  id        String   @id @default(uuid())
+  company   String
+  role      String
+  duration  String
+  desc      String
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+
+  @@map("experiences")
+}
+
+model Skill {
+  id        String @id @default(uuid())
+  name      String
+  category  String
+  icon      String @default("Code2")
+  bg        String @default("bg-foreground/10")
+  color     String @default("text-foreground")
+  sortOrder Int    @default(0)
+
+  @@map("skills")
+}
+
+model Publication {
+  id          String   @id @default(uuid())
+  title       String
+  publisher   String   @default("IEEE / International Conference")
+  year        String   @default("2025")
+  authors     String   @default("MD ZAFOR IQBAL, et al.")
+  abstract    String
+  doi         String?
+  pdfUrl      String?
+  link        String?
+  tags        String[]
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("publications")
+}
+
+model Activity {
+  id           String   @id @default(uuid())
+  title        String
+  category     String   @default("Teaching & Instruction")
+  organization String
+  date         String
+  description  String
+  image        String?
+  link         String?
+  sortOrder    Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("activities")
+}
+
+model Contact {
+  id             String   @id @default(uuid())
+  location       String   @default("DHAKA, BANGLADESH")
+  email          String   @default("xoy4444@gmail.com")
+  linkedin       String   @default("https://linkedin.com/in/zaforiqbalxoy")
+  github         String   @default("https://github.com/zafor4")
+  figma          String   @default("https://figma.com/@zaforiqbal")
+  twitter        String   @default("https://twitter.com/@zaforiqbal")
+  githubUsername String   @default("zafor4")
+  officeImageUrl String   @default("/assets/professional_office.png")
+  updatedAt      DateTime @updatedAt
+
+  @@map("contact")
+}
