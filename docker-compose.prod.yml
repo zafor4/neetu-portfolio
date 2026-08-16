@@ -39,10 +39,12 @@ services:
       dockerfile: Dockerfile
     container_name: neetu-backend
     restart: always
+    ports:
+      - "3001:3000"
     environment:
       DATABASE_URL: "postgresql://${POSTGRES_USER:-neetu_user}:${POSTGRES_PASSWORD:-neetu123}@postgres-neetu:5432/${POSTGRES_DB:-neetu_db}?schema=public"
       JWT_SECRET: ${JWT_SECRET:-super-secret-jwt-key-neetu-2026}
-      PORT: 3001
+      PORT: 3000
       MINIO_ENDPOINT: minio-neetu
       MINIO_PORT: 9000
       MINIO_USE_SSL: "false"
@@ -61,6 +63,8 @@ services:
       dockerfile: Dockerfile
     container_name: neetu-frontend
     restart: always
+    ports:
+      - "5174:5173"
     depends_on:
       - backend-neetu
 
