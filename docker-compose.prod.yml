@@ -16,6 +16,8 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    networks:
+      - default
 
   minio-neetu:
     image: minio/minio:latest
@@ -32,6 +34,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - default
 
   backend-neetu:
     build:
@@ -39,8 +43,6 @@ services:
       dockerfile: Dockerfile
     container_name: neetu-backend
     restart: always
-    ports:
-      - "3001:3000"
     environment:
       DATABASE_URL: "postgresql://${POSTGRES_USER:-neetu_user}:${POSTGRES_PASSWORD:-neetu123}@postgres-neetu:5432/${POSTGRES_DB:-neetu_db}?schema=public"
       JWT_SECRET: ${JWT_SECRET:-super-secret-jwt-key-neetu-2026}
@@ -56,6 +58,9 @@ services:
         condition: service_healthy
       minio-neetu:
         condition: service_healthy
+    networks:
+      - default
+      - shared-net
 
   frontend-neetu:
     build:
@@ -63,11 +68,16 @@ services:
       dockerfile: Dockerfile
     container_name: neetu-frontend
     restart: always
-    ports:
-      - "5174:5173"
     depends_on:
       - backend-neetu
+    networks:
+      - default
+      - shared-net
 
 volumes:
   neetu_postgres_data:
   neetu_minio_data:
+
+networks:
+  shared-net:
+    external: true
