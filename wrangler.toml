@@ -1,0 +1,29 @@
+name = "neetu-portfolio"
+main = "worker/src/index.ts"
+compatibility_date = "2026-10-01"
+
+[dev]
+port = 8787
+
+# Replace database_id after: npx wrangler d1 create neetu-portfolio
+[[d1_databases]]
+binding = "DB"
+database_name = "neetu-portfolio"
+database_id = "3382ca8a-68a4-420d-9e3f-56d1d2546e76"
+migrations_dir = "migrations"
+
+# Create with: npx wrangler r2 bucket create neetu-portfolio-media
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "neetu-portfolio-media"
+preview_bucket_name = "neetu-portfolio-media"
+
+[assets]
+directory = "./frontend/dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*"]
+
+[vars]
+# Override in production: npx wrangler secret put JWT_SECRET
+JWT_SECRET = "change-me-before-production"

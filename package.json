@@ -1,0 +1,30 @@
+{
+  "name": "neetu-portfolio",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run ensure-dist && concurrently -k \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:api": "wrangler dev --port 8787",
+    "dev:web": "npm run dev --prefix frontend",
+    "ensure-dist": "node scripts/ensure-dist.mjs",
+    "build": "npm run build --prefix frontend",
+    "deploy": "npm run build && wrangler deploy",
+    "db:migrate:local": "wrangler d1 migrations apply neetu-portfolio --local",
+    "db:migrate:remote": "wrangler d1 migrations apply neetu-portfolio --remote",
+    "cf:login": "wrangler login",
+    "cf:bootstrap": "node scripts/cf-bootstrap.mjs",
+    "cf:create-db": "wrangler d1 create neetu-portfolio",
+    "cf:create-r2": "wrangler r2 bucket create neetu-portfolio-media"
+  },
+  "dependencies": {
+    "hono": "^4.7.10",
+    "jose": "^6.0.11"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "latest",
+    "concurrently": "^9.1.2",
+    "typescript": "^5.7.3",
+    "wrangler": "^4.40.0"
+  }
+}

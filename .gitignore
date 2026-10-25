@@ -9,6 +9,12 @@ build/
 .env
 .env.local
 .env.*.local
+.dev.vars
+
+# Cloudflare
+.wrangler/
+.wrangler-preview/
+.dev.vars
 
 # OS generated files
 .DS_Store
